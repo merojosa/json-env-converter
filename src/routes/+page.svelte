@@ -9,15 +9,68 @@
       return "Incorrect JSON";
     }
 
+    function getEnvValue(value: unknown): string | number {
+      if (value === null || value === undefined) {
+        return "";
+      }
+
+      if (typeof value === "string" || typeof value === "number") {
+        return value;
+      }
+
+      if (Array.isArray(value)) {
+        return value.reduce<string>((result, arrayElement, index) => {
+          if (
+            JSON.stringify(arrayElement) === "{}" ||
+            arrayElement === null ||
+            arrayElement === undefined
+          ) {
+            return result;
+          }
+
+          return result.concat(
+            `${index > 0 ? "," : ""}${getEnvValue(arrayElement)}`
+          );
+        }, "");
+      }
+
+      if (typeof value === "object") {
+        const entries = Object.entries(value);
+
+        return entries.reduce((result, [key, value], index) => {
+          if (
+            JSON.stringify(value) === "{}" ||
+            value === null ||
+            value === undefined
+          ) {
+            return result.concat(`${key}`);
+          }
+
+          return result.concat(
+            `${key},${getEnvValue(value)}${
+              index < entries.length - 1 ? "," : ""
+            }`
+          );
+        }, "");
+      }
+
+      return "";
+    }
+
     if (Array.isArray(json)) {
-      return "The JSON starts with an array";
+      return json.reduce(
+        (codeValue, arrayElement) => codeValue.concat(`${arrayElement}\n`),
+        ""
+      );
     }
 
     const entries = Object.entries(json);
 
-    return entries.reduce((codeValue, [envName, value]) => {
-      return codeValue.concat(`${envName}=${value}\n`);
-    }, "");
+    return entries.reduce(
+      (codeValue, [envName, value]) =>
+        codeValue.concat(`${envName}=${getEnvValue(value)}\n`),
+      ""
+    );
   }
 
   $: codeValue = calculateCodeValue(textareaValue);
