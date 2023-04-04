@@ -107,4 +107,13 @@
     margin-top: 0;
     background-color: rgb(220, 220, 220);
   }
+
+  .result-container > pre {
+    white-space: break-spaces;
+  }
+
+  .result-container > pre > code {
+    word-break: break-all;
+    word-wrap: break-word;
+  }
 </style>
