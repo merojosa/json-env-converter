@@ -79,7 +79,7 @@
 </script>
 
 <main>
-  <h1>JSON - Envs Variables Converter</h1>
+  <h1>JSON - Env Variables Converter</h1>
   <section class="grid-section">
     <h2>JSON</h2>
 
