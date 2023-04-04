@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Github from "./github.svelte";
+
   let textareaValue = "";
 
   function calculateCodeValue(value: string) {
@@ -83,15 +85,26 @@
 
     <textarea bind:value={textareaValue} class="edit-textarea" />
 
-    <h2>Envs Variables</h2>
+    <h2>Env Variables</h2>
     <div class="result-container">
       <pre><code>{codeValue}</code></pre>
     </div>
   </section>
 </main>
+<footer>
+  <span>
+    Made by <a href="https://jose-andres.dev" target="_blank">Jose Andrés</a
+    ></span
+  >
+  <div class="icons-container">
+    <a href="https://github.com/merojosa/json-env-converter" target="_blank"
+      ><Github /></a
+    >
+  </div>
+</footer>
 
 <svelte:head>
-  <title>JSON - Envs Variables Converter</title>
+  <title>JSON - Env Variables Converter</title>
   <meta
     name="description"
     content="A JSON-Environments variables online converter"
@@ -104,7 +117,7 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 100vh auto;
     grid-template-areas: "main" "footer";
     overflow-x: hidden;
   }
@@ -126,6 +139,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    margin: 0 2.5rem;
+    border-top: 1px solid black;
   }
 
   .grid-section {
