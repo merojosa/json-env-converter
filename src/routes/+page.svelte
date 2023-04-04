@@ -1,81 +1,12 @@
 <script lang="ts">
   import Github from "./github.svelte";
+  import { converter } from "./converter-store";
+  import { browser } from "$app/environment";
 
-  let textareaValue = "";
+  let textareaValue = (browser && localStorage.value) || "";
 
-  function calculateCodeValue(value: string) {
-    let json = {};
-    try {
-      json = JSON.parse(value);
-    } catch (e) {
-      return "Incorrect JSON";
-    }
-
-    function getEnvValue(value: unknown): string | number {
-      if (value === null || value === undefined) {
-        return "";
-      }
-
-      if (typeof value === "string" || typeof value === "number") {
-        return value;
-      }
-
-      if (Array.isArray(value)) {
-        return value.reduce<string>((result, arrayElement, index) => {
-          if (
-            JSON.stringify(arrayElement) === "{}" ||
-            arrayElement === null ||
-            arrayElement === undefined
-          ) {
-            return result;
-          }
-
-          return result.concat(
-            `${index > 0 ? "," : ""}${getEnvValue(arrayElement)}`
-          );
-        }, "");
-      }
-
-      if (typeof value === "object") {
-        const entries = Object.entries(value);
-
-        return entries.reduce((result, [key, value], index) => {
-          if (
-            JSON.stringify(value) === "{}" ||
-            value === null ||
-            value === undefined
-          ) {
-            return result.concat(`${key}`);
-          }
-
-          return result.concat(
-            `${key},${getEnvValue(value)}${
-              index < entries.length - 1 ? "," : ""
-            }`
-          );
-        }, "");
-      }
-
-      return "";
-    }
-
-    if (Array.isArray(json)) {
-      return json.reduce(
-        (codeValue, arrayElement) => codeValue.concat(`${arrayElement}\n`),
-        ""
-      );
-    }
-
-    const entries = Object.entries(json);
-
-    return entries.reduce(
-      (codeValue, [envName, value]) =>
-        codeValue.concat(`${envName}=${getEnvValue(value)}\n`),
-      ""
-    );
-  }
-
-  $: codeValue = calculateCodeValue(textareaValue);
+  $: converter.fromJsonToEnv(textareaValue);
+  $: browser && localStorage.setItem("value", textareaValue);
 </script>
 
 <main>
@@ -87,7 +18,7 @@
 
     <h2>Env Variables</h2>
     <div class="result-container">
-      <pre><code>{codeValue}</code></pre>
+      <pre><code>{$converter}</code></pre>
     </div>
   </section>
 </main>
