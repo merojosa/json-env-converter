@@ -20,9 +20,7 @@
   <h1>JSON - Env Variables Converter</h1>
   <section class="grid-section">
     <h2>JSON</h2>
-
     <textarea bind:value={textareaValue} class="edit-textarea" />
-
     <h2>Env Variables</h2>
     <div class="result-container">
       <pre><code>{$converter}</code></pre>
@@ -50,6 +48,7 @@
   h2 {
     margin: 0;
     text-align: center;
+    align-self: center;
   }
 
   h2 {
@@ -58,11 +57,10 @@
 
   .grid-section {
     display: grid;
-    grid-template-columns: repeat(2, 50%);
-    grid-template-rows: min-content 80%;
-    grid-auto-flow: column;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 40% auto 40%;
     width: 100%;
-    height: 75%;
+    height: 100%;
   }
 
   .edit-textarea {
@@ -107,5 +105,14 @@
   .result-container:hover > .clipboard-button {
     display: block;
     opacity: 1;
+  }
+
+  @media (min-width: 800px) {
+    .grid-section {
+      grid-template-columns: repeat(2, 50%);
+      grid-template-rows: min-content 80%;
+      grid-auto-flow: column;
+      height: 75%;
+    }
   }
 </style>

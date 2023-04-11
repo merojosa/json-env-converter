@@ -27,10 +27,10 @@
   :global(main) {
     grid-area: main;
     margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    align-items: unset;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 100%;
   }
 
   :global(footer) {
@@ -43,5 +43,11 @@
     padding: 1.5rem 1rem;
     margin: 0 2.5rem;
     border-top: 1px solid black;
+  }
+
+  @media (min-width: 600px) {
+    :global(main) {
+      align-items: center;
+    }
   }
 </style>
