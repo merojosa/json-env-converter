@@ -20,7 +20,11 @@
   <h1>JSON - Env Variables Converter</h1>
   <section class="grid-section">
     <h2>JSON</h2>
-    <textarea bind:value={textareaValue} class="edit-textarea" />
+    <textarea
+      aria-labelledby="JSON"
+      bind:value={textareaValue}
+      class="edit-textarea"
+    />
     <h2>Env Variables</h2>
     <div class="result-container">
       <pre><code>{$converter}</code></pre>
