@@ -28,7 +28,7 @@
     <h2>Env Variables</h2>
     <div class="result-container">
       <pre><code>{$converter}</code></pre>
-      <button class="clipboard-button" on:click={copyTextarea}>
+      <button type="button" class="clipboard-button" on:click={copyTextarea}>
         <div>
           <Clipboard />
         </div>
@@ -69,21 +69,24 @@
 
   .edit-textarea {
     justify-self: center;
-    width: 80%;
     resize: none;
-    margin: 2rem;
-    margin-top: 0;
+    margin: 0;
+    padding: 2px;
+    width: calc(
+      100% - 4px - 4px
+    ); /* The first 4px is native the border width and the second one is for the padding  */
   }
 
   .result-container {
-    padding: 1rem;
-    margin: 2rem;
     margin-top: 0;
     background-color: rgb(220, 220, 220);
     position: relative;
+    width: 100%;
   }
 
   .result-container > pre {
+    padding: 1rem;
+    margin: 0;
     white-space: break-spaces;
   }
 
@@ -99,7 +102,6 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    cursor: pointer;
   }
 
   .clipboard-button > div {
@@ -108,15 +110,15 @@
 
   .result-container:hover > .clipboard-button {
     display: block;
-    opacity: 1;
   }
 
   @media (min-width: 800px) {
     .grid-section {
-      grid-template-columns: repeat(2, 50%);
+      grid-template-columns: repeat(2, 1fr);
       grid-template-rows: min-content 80%;
       grid-auto-flow: column;
       height: 75%;
+      column-gap: 5rem;
     }
   }
 </style>

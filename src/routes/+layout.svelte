@@ -30,7 +30,7 @@
 
   :global(main) {
     grid-area: main;
-    margin: 1rem;
+    margin: 2.5rem;
     display: grid;
     align-items: unset;
     grid-template-rows: 10% 90%;
