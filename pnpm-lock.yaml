@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+dependencies:
+  '@fontsource/open-sans':
+    specifier: ^4.5.14
+    version: 4.5.14
+
 devDependencies:
   '@sveltejs/adapter-netlify':
     specifier: ^2.0.6
@@ -420,6 +425,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@fontsource/open-sans@4.5.14:
+    resolution: {integrity: sha512-mBXIIETBlW8q/ocuUN0hyGow2iuf75hQEHQt8R/RJ/HcphVbLg8KB7pHYGbFGDqs75W+SWvTC7JkVeAjT65BuQ==}
+    dev: false
 
   /@iarna/toml@2.2.5:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}

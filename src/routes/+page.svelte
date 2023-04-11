@@ -1,9 +1,17 @@
 <script lang="ts">
   import Github from "./github.svelte";
   import { converter } from "./converter-store";
-  import { browser } from "$app/environment";
+  import Clipboard from "./components/clipboard.svelte";
 
   let textareaValue = "";
+
+  const copyTextarea = async () => {
+    try {
+      await navigator.clipboard.writeText($converter);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   $: converter.fromJsonToEnv(textareaValue);
 </script>
@@ -18,40 +26,26 @@
     <h2>Env Variables</h2>
     <div class="result-container">
       <pre><code>{$converter}</code></pre>
+      <button class="clipboard-button" on:click={copyTextarea}>
+        <div>
+          <Clipboard />
+        </div>
+      </button>
     </div>
   </section>
 </main>
 <footer>
   <span>
-    Made by <a href="https://jose-andres.dev" target="_blank">Jose Andrés</a
-    ></span
-  >
+    Made by <a href="https://jose-andres.dev" target="_blank">Jose Andrés</a>
+  </span>
   <div class="icons-container">
     <a href="https://github.com/merojosa/json-env-converter" target="_blank"
-      ><Github /></a
-    >
+      ><Github />
+    </a>
   </div>
 </footer>
 
-<svelte:head>
-  <title>JSON - Env Variables Converter</title>
-  <meta
-    name="description"
-    content="A JSON-Environments variables online converter"
-  />
-</svelte:head>
-
 <style>
-  :global(body) {
-    all: unset;
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 100vh auto;
-    grid-template-areas: "main" "footer";
-    overflow-x: hidden;
-  }
-
   h1,
   h2 {
     margin: 0;
@@ -60,27 +54,6 @@
 
   h2 {
     padding: 1rem;
-  }
-
-  main {
-    grid-area: main;
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  footer {
-    grid-area: footer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem 1rem;
-    margin: 0 2.5rem;
-    border-top: 1px solid black;
   }
 
   .grid-section {
@@ -105,6 +78,7 @@
     margin: 2rem;
     margin-top: 0;
     background-color: rgb(220, 220, 220);
+    position: relative;
   }
 
   .result-container > pre {
@@ -114,5 +88,24 @@
   .result-container > pre > code {
     word-break: break-all;
     word-wrap: break-word;
+  }
+
+  .clipboard-button {
+    display: none;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .clipboard-button > div {
+    display: flex;
+  }
+
+  .result-container:hover > .clipboard-button {
+    display: block;
+    opacity: 1;
   }
 </style>

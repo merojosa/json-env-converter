@@ -67,11 +67,13 @@ function convertToEnv(value: string): string {
 
   const entries = Object.entries(json);
 
-  return entries.reduce(
-    (codeValue, [envName, value]) =>
-      codeValue.concat(`${envName}=${getEnvValue(value)}\n`),
-    ""
-  );
+  return entries
+    .reduce(
+      (codeValue, [envName, value]) =>
+        codeValue.concat(`${envName}=${getEnvValue(value)}\n`),
+      ""
+    )
+    .trim();
 }
 
 function createConverter() {
