@@ -1,8 +1,20 @@
 <script>
   import "@fontsource/open-sans";
+  import Github from "./github.svelte";
 </script>
 
 <slot />
+
+<footer>
+  <span>
+    Made by <a href="https://jose-andres.dev" target="_blank">Jose Andrés</a>
+  </span>
+  <div class="icons-container">
+    <a href="https://github.com/merojosa/json-env-converter" target="_blank">
+      <Github />
+    </a>
+  </div>
+</footer>
 
 <svelte:head>
   <title>JSON - Env Variables Converter</title>
@@ -33,7 +45,7 @@
     margin: 2.5rem;
     display: grid;
     align-items: unset;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 40% 60%;
     grid-template-columns: 100%;
   }
 
@@ -49,9 +61,16 @@
     border-top: 1px solid black;
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: 400px) {
+    :global(main) {
+      grid-template-rows: 30% 70%;
+    }
+  }
+
+  @media (min-width: 800px) {
     :global(main) {
       align-items: center;
+      grid-template-rows: 15% 85%;
     }
   }
 </style>

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Github from "./github.svelte";
   import { converter } from "./converter-store";
   import Clipboard from "./components/clipboard.svelte";
 
@@ -17,7 +16,22 @@
 </script>
 
 <main>
-  <h1>JSON - Env Variables Converter</h1>
+  <section>
+    <h1>JSON - Env Variables Converter</h1>
+    <p>
+      No fetching to the server, no local storage and no cookies. Everything
+      stays in the browser until you reload
+    </p>
+    <p>
+      You can look at the <a
+        href="https://github.com/merojosa/json-env-converter"
+        target="_blank">source code</a
+      >
+      to check how it works! It was made with
+      <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, so it
+      should be easy to understand
+    </p>
+  </section>
   <section class="grid-section">
     <h2>JSON</h2>
     <textarea
@@ -36,16 +50,6 @@
     </div>
   </section>
 </main>
-<footer>
-  <span>
-    Made by <a href="https://jose-andres.dev" target="_blank">Jose Andrés</a>
-  </span>
-  <div class="icons-container">
-    <a href="https://github.com/merojosa/json-env-converter" target="_blank"
-      ><Github />
-    </a>
-  </div>
-</footer>
 
 <style>
   h1,
