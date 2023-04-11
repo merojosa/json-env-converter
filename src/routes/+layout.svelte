@@ -20,7 +20,7 @@
   <title>JSON - Env Variables Converter</title>
   <meta
     name="description"
-    content="A JSON-Environments variables online converter"
+    content="A JSON-Environment variables online converter"
   />
   <meta
     name="google-site-verification"
