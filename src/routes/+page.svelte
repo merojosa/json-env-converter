@@ -28,8 +28,7 @@
         target="_blank">source code</a
       >
       to check how it works! It was made with
-      <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, so it
-      should be easy to understand
+      <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> ❤️
     </p>
   </section>
   <section class="grid-section">
@@ -87,6 +86,7 @@
     background-color: rgb(220, 220, 220);
     position: relative;
     width: 100%;
+    overflow-y: auto;
   }
 
   .result-container > pre {
