@@ -3,10 +3,9 @@
   import { converter } from "./converter-store";
   import { browser } from "$app/environment";
 
-  let textareaValue = (browser && localStorage.value) || "";
+  let textareaValue = "";
 
   $: converter.fromJsonToEnv(textareaValue);
-  $: browser && localStorage.setItem("value", textareaValue);
 </script>
 
 <main>
