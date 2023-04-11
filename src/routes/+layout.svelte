@@ -10,6 +10,10 @@
     name="description"
     content="A JSON-Environments variables online converter"
   />
+  <meta
+    name="google-site-verification"
+    content="AcTAAeL5tm0AeyDltMUMjgpxpySMInGYI-H6yIA2kMI"
+  />
 </svelte:head>
 
 <style>
