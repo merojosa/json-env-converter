@@ -21,9 +21,9 @@
   <section class="grid-section">
     <h2>JSON</h2>
     <textarea
-      aria-labelledby="JSON"
-      bind:value={textareaValue}
       class="edit-textarea"
+      bind:value={textareaValue}
+      aria-label="JSON"
     />
     <h2>Env Variables</h2>
     <div class="result-container">
