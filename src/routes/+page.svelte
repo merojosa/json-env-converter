@@ -57,12 +57,13 @@
 
   h2 {
     padding: 1rem;
+    margin-top: 1rem;
   }
 
   .grid-section {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto 40% auto 40%;
+    grid-template-rows: auto 1fr auto 1fr;
     width: 100%;
     height: 100%;
   }
@@ -113,6 +114,10 @@
   }
 
   @media (min-width: 800px) {
+    h2 {
+      margin: 0;
+    }
+
     .grid-section {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: min-content 80%;
