@@ -17,40 +17,46 @@
 
 <main>
   <section>
-    <h1>JSON - Env Variables Converter</h1>
-    <p>
-      No fetching to the server, no local storage and no cookies. Everything
-      stays in the browser until you reload
-    </p>
-    <p>
-      You can look at the <a
-        href="https://github.com/merojosa/json-env-converter"
-        target="_blank">source code</a
-      >
-      to check how it works! It was made with
-      <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> ❤️
-    </p>
-  </section>
-  <section class="grid-section">
-    <h2>JSON</h2>
-    <textarea
-      class="edit-textarea"
-      bind:value={textareaValue}
-      aria-label="JSON"
-    />
-    <h2>Env Variables</h2>
-    <div class="result-container">
-      <pre><code>{$converter}</code></pre>
-      <button type="button" class="clipboard-button" on:click={copyTextarea}>
-        <div>
-          <Clipboard />
-        </div>
-      </button>
+    <div>
+      <h1>JSON - Env Variables Converter</h1>
+      <p class="description">
+        No fetching to the server, nothing stored. Everything stays in the
+        browser until you close or reload the page
+      </p>
+      <p class="description">
+        Checkout the <a
+          href="https://github.com/merojosa/json-env-converter"
+          target="_blank">source code</a
+        >!
+      </p>
+    </div>
+    <div class="grid-section">
+      <h2>JSON</h2>
+      <textarea
+        class="edit-textarea textareas"
+        bind:value={textareaValue}
+        aria-label="JSON"
+      />
+      <h2>Env Variables</h2>
+      <div class="result-container textareas">
+        <pre><code>{$converter}</code></pre>
+        <button type="button" class="clipboard-button" on:click={copyTextarea}>
+          <div>
+            <Clipboard />
+          </div>
+        </button>
+      </div>
     </div>
   </section>
 </main>
 
 <style>
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
   h1,
   h2 {
     margin: 0;
@@ -63,12 +69,20 @@
     margin-top: 1rem;
   }
 
+  .description {
+    text-align: center;
+    margin: 0;
+  }
+
   .grid-section {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr auto 1fr;
     width: 100%;
-    height: 100%;
+  }
+
+  .textareas {
+    height: 50vh;
   }
 
   .edit-textarea {
@@ -126,7 +140,6 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: min-content 80%;
       grid-auto-flow: column;
-      height: 75%;
       column-gap: 5rem;
     }
   }

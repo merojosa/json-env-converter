@@ -1,19 +1,14 @@
 <script>
   import "@fontsource/open-sans";
-  import Github from "./github.svelte";
 </script>
 
 <slot />
 
 <footer>
   <span>
-    Made by <a href="https://merojosa.dev" target="_blank">Jose Andrés</a>
+    Made by <a href="https://merojosa.dev" target="_blank">Jose Andrés</a> with SvelteKit
+    ❤️
   </span>
-  <div class="icons-container">
-    <a href="https://github.com/merojosa/json-env-converter" target="_blank">
-      <Github />
-    </a>
-  </div>
 </footer>
 
 <svelte:head>
@@ -34,7 +29,7 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 100vh auto;
+    grid-template-rows: 93vh 7vh;
     grid-template-areas: "main" "footer";
     overflow-x: hidden;
     font-family: "Open Sans", sans-serif;
@@ -45,8 +40,9 @@
     margin: 2.5rem;
     display: grid;
     align-items: unset;
-    grid-template-rows: 40% 60%;
     grid-template-columns: 100%;
+    margin-left: 10vw;
+    margin-right: 10vw;
   }
 
   :global(footer) {
@@ -59,18 +55,5 @@
     padding: 1.5rem 1rem;
     margin: 0 2.5rem;
     border-top: 1px solid black;
-  }
-
-  @media (min-width: 400px) {
-    :global(main) {
-      grid-template-rows: 30% 70%;
-    }
-  }
-
-  @media (min-width: 800px) {
-    :global(main) {
-      align-items: center;
-      grid-template-rows: 15% 85%;
-    }
   }
 </style>
