@@ -7,7 +7,7 @@
 
 <footer>
   <span>
-    Made by <a href="https://jose-andres.dev" target="_blank">Jose Andrés</a>
+    Made by <a href="https://merojosa.dev" target="_blank">Jose Andrés</a>
   </span>
   <div class="icons-container">
     <a href="https://github.com/merojosa/json-env-converter" target="_blank">
