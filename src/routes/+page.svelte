@@ -20,11 +20,11 @@
     <div>
       <h1>JSON - Env Variables Converter</h1>
       <p class="description">
-        No fetching to the server, nothing stored. Everything stays in the
-        browser until you close or reload the page
+        No fetching to the server, nothing is stored. Everything stays in the
+        browser until you close or reload the page.
       </p>
       <p class="description">
-        Checkout the <a
+        Check out the <a
           href="https://github.com/merojosa/json-env-converter"
           target="_blank">source code</a
         >!
