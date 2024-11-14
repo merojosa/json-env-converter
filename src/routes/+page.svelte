@@ -18,7 +18,7 @@
 <main>
   <section>
     <div>
-      <h1>JSON - Env Variables Converter</h1>
+      <h1>JSON to Environment Variables</h1>
       <p class="description">
         No fetching to the server, nothing is stored. Everything stays in the
         browser until you close or reload the page.
