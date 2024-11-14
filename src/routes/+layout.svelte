@@ -22,7 +22,7 @@
   />
   <meta
     name="google-site-verification"
-    content="fY5PHxXj_u3KggGYRZFaffPYTGLV7CKEtGNOv2qaKOo"
+    content="Vw8sWSbx_Wdc2TapzRL6CToZwefZNuIIlPUPZOhqkVg"
   />
   <meta name="robots" content="index, follow" />
 </svelte:head>
