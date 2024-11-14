@@ -20,8 +20,11 @@
     name="google-site-verification"
     content="AcTAAeL5tm0AeyDltMUMjgpxpySMInGYI-H6yIA2kMI"
   />
-
-  <meta name="”robots”" content="index, follow" />
+  <meta
+    name="google-site-verification"
+    content="fY5PHxXj_u3KggGYRZFaffPYTGLV7CKEtGNOv2qaKOo"
+  />
+  <meta name="robots" content="index, follow" />
 </svelte:head>
 
 <style>
