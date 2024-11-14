@@ -36,7 +36,7 @@
         class="edit-textarea textareas"
         bind:value={textareaValue}
         aria-label="JSON"
-      />
+      ></textarea>
       <h2>Env Variables</h2>
       <div class="result-container textareas">
         <pre><code>{$converter}</code></pre>

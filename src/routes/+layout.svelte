@@ -14,7 +14,7 @@
   <title>JSON - Env Variables Converter</title>
   <meta
     name="description"
-    content="Convert JSON text to env variables. This can be useful for services that returns JSON data like AWS Secrets Manager. Nothing is stored, everything stays in the browser until you reload or close it."
+    content="Convert JSON text to env variables. This can be useful for services that returns JSON data instead of .env files like AWS Secrets Manager. Nothing is stored, everything stays in the browser until you reload or close it."
   />
   <meta
     name="google-site-verification"
