@@ -101,6 +101,10 @@
     position: relative;
     width: 100%;
     overflow-y: auto;
+    padding: 2px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(220, 220, 220);
   }
 
   .result-container > pre {
