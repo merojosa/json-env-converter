@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://json-env-converter.netlify.app/*"
+  to = "https://json-to-env.merojosa.dev/"
+  status = 301
+  force = true
